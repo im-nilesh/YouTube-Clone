@@ -26,7 +26,7 @@ async function loginUser(req, res) {
     token: token,
     user: {
       username: user.username,
-      email: userData.email,
+      email: user.email,
     },
   });
 }

@@ -18,7 +18,7 @@ async function loginUser(req, res) {
       message: "Invalid email or Password",
     });
   }
-  const token = jwt.sign({ id: user.id }, mysecretKey, {
+  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
     expiresIn: "30m",
   });
   res.status(200).json({

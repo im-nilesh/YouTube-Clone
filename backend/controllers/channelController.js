@@ -1,4 +1,4 @@
-import Channel from "../models/Channel";
+import Channel from "../models/Channel.js";
 
 async function createChannel(req, res) {
   try {

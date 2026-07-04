@@ -22,6 +22,11 @@ const videoSchema = mongoose.Schema(
       required: true,
     },
 
+    category: {
+      type: String,
+      required: true,
+    },
+
     channel: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Channel",

@@ -129,3 +129,47 @@ export async function deleteVideo(req, res) {
     });
   }
 }
+
+export async function searchVideos(req, res) {
+  try {
+    const title = req.query.title;
+    const videos = await Video.find({
+      title: { $regex: title, $options: "i" },
+    });
+    if (videos.length === 0) {
+      return res.status(404).json({
+        message: "Videos not found",
+      });
+    }
+    return res.status(200).json({
+      message: "Video Found",
+      videos: videos,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}
+
+export async function filterVideos(req, res) {
+  try {
+    const category = req.query.category;
+    const videos = await Video.find({
+      category,
+    });
+    if (videos.length === 0) {
+      return res.status(404).json({
+        message: "Category not found",
+      });
+    }
+    return res.status(200).json({
+      message: "Videos fetched successfully",
+      videos,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}

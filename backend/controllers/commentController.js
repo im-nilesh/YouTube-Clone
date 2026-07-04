@@ -42,3 +42,33 @@ export async function getAllComments(req, res) {
     });
   }
 }
+
+export async function updateComment(req, res) {
+  try {
+    const data = req.body;
+    const commentId = req.params.id;
+    const userId = req.user.id;
+    const comment = await Comment.findById(commentId);
+    if (!comment) {
+      return res.status(404).json({
+        message: "Comment not found",
+      });
+    }
+    if (comment.user.toString() !== userId) {
+      return res.status(403).json({
+        message: "Not authorized",
+      });
+    }
+    const updatedComment = await Comment.findByIdAndUpdate(commentId, data, {
+      new: true,
+    });
+    return res.status(200).json({
+      message: "Comment Updated successfully",
+      updatedComment,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}

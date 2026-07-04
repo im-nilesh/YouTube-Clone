@@ -43,3 +43,17 @@ export async function getChannel(req, res) {
     });
   }
 }
+
+export async function getAllChannels(req, res) {
+  try {
+    const channels = await Channel.find();
+
+    return res.status(200).json({
+      channels,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}

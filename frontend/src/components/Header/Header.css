@@ -1,0 +1,159 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  background: var(--bg);
+
+  z-index: 1000;
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* ================= Left ================= */
+
+.header-left {
+  width: 210px;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.youtube-logo {
+  font-size: 32px;
+  color: #ff0000;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+
+/* ================= Center ================= */
+
+.header-center {
+  flex: 1;
+  justify-content: center;
+  gap: 16px;
+
+  max-width: 732px;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+
+  flex: 1;
+  max-width: 640px;
+
+  height: 40px;
+}
+
+.search-input {
+  flex: 1;
+  height: 100%;
+
+  padding: 0 16px;
+
+  background: var(--bg);
+
+  border: 1px solid var(--border);
+  border-right: none;
+
+  border-radius: 40px 0 0 40px;
+
+  color: var(--text-primary);
+
+  font-size: 16px;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-btn {
+  width: 64px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 0 40px 40px 0;
+
+  transition: var(--transition);
+}
+
+.search-btn:hover {
+  background: var(--surface-light);
+}
+
+.search-btn svg {
+  font-size: 22px;
+}
+
+.mic-btn {
+  background: var(--surface);
+}
+
+.mic-btn svg {
+  font-size: 22px;
+}
+
+/* ================= Right ================= */
+
+.header-right {
+  width: 210px;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+}
+
+.header-icon {
+  font-size: 24px;
+}
+
+.signin-btn {
+  height: 36px;
+
+  padding: 0 16px;
+
+  border: 1px solid var(--blue);
+
+  border-radius: 18px;
+
+  color: var(--blue);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: var(--transition);
+}
+
+.signin-btn:hover {
+  background: rgba(62, 166, 255, 0.12);
+}

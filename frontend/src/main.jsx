@@ -4,6 +4,7 @@ import { RouterProvider } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import "./styles/global.css";
 
 import router from "./routes/router";
 import { SidebarProvider } from "./context/SidebarContext";

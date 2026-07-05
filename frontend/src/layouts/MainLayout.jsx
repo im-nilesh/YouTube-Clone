@@ -5,18 +5,18 @@ import Sidebar from "../components/Sidebar/Sidebar";
 
 import "./MainLayout.css";
 
-export default function MainLayout() {
+function MainLayout() {
   return (
     <>
       <Header />
 
-      <div className="layout">
-        <Sidebar />
+      <Sidebar />
 
-        <main className="main-content">
-          <Outlet />
-        </main>
-      </div>
+      <main className="main-content">
+        <Outlet />
+      </main>
     </>
   );
 }
+
+export default MainLayout;

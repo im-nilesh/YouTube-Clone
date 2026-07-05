@@ -1,13 +1,13 @@
 import {
   MdHomeFilled,
   MdOutlineSubscriptions,
+  MdOutlineVideoLibrary,
   MdHistory,
   MdOutlineWatchLater,
   MdThumbUpAlt,
-  MdVideoLibrary,
   MdTrendingUp,
-  MdSportsEsports,
   MdMusicNote,
+  MdSportsEsports,
   MdNewspaper,
 } from "react-icons/md";
 
@@ -15,14 +15,14 @@ export const sidebarSections = [
   {
     items: [
       {
-        icon: MdHomeFilled,
         title: "Home",
         path: "/",
+        icon: MdHomeFilled,
       },
       {
-        icon: MdOutlineSubscriptions,
         title: "Subscriptions",
         path: "/subscriptions",
+        icon: MdOutlineSubscriptions,
       },
     ],
   },
@@ -30,24 +30,24 @@ export const sidebarSections = [
   {
     items: [
       {
-        icon: MdVideoLibrary,
         title: "Your Videos",
         path: "/your-videos",
+        icon: MdOutlineVideoLibrary,
       },
       {
-        icon: MdHistory,
         title: "History",
         path: "/history",
+        icon: MdHistory,
       },
       {
-        icon: MdOutlineWatchLater,
         title: "Watch Later",
         path: "/watch-later",
+        icon: MdOutlineWatchLater,
       },
       {
-        icon: MdThumbUpAlt,
         title: "Liked Videos",
-        path: "/liked",
+        path: "/liked-videos",
+        icon: MdThumbUpAlt,
       },
     ],
   },
@@ -56,24 +56,24 @@ export const sidebarSections = [
     title: "Explore",
     items: [
       {
-        icon: MdTrendingUp,
         title: "Trending",
         path: "/trending",
+        icon: MdTrendingUp,
       },
       {
-        icon: MdMusicNote,
         title: "Music",
         path: "/music",
+        icon: MdMusicNote,
       },
       {
-        icon: MdSportsEsports,
         title: "Gaming",
         path: "/gaming",
+        icon: MdSportsEsports,
       },
       {
-        icon: MdNewspaper,
         title: "News",
         path: "/news",
+        icon: MdNewspaper,
       },
     ],
   },

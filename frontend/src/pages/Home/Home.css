@@ -1,4 +1,13 @@
 .home {
   width: 100%;
-  min-height: calc(100vh - var(--header-height));
+}
+
+.video-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+
+  gap: 24px 16px;
+
+  margin-top: 24px;
 }

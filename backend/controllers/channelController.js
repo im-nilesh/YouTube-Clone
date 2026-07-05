@@ -1,4 +1,5 @@
 import Channel from "../models/Channel.js";
+import Video from "../models/Video.js";
 
 export async function createChannel(req, res) {
   try {
@@ -50,6 +51,33 @@ export async function getAllChannels(req, res) {
 
     return res.status(200).json({
       channels,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}
+
+export async function getChannelVideos(req, res) {
+  try {
+    const channelId = req.params.id;
+
+    const channel = await Channel.findById(channelId);
+
+    if (!channel) {
+      return res.status(404).json({
+        message: "Channel not found",
+      });
+    }
+
+    const videos = await Video.find({
+      channel: channelId,
+    });
+
+    return res.status(200).json({
+      channel,
+      videos,
     });
   } catch (error) {
     return res.status(500).json({

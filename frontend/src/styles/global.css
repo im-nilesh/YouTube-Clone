@@ -1,0 +1,295 @@
+/* ==========================================================
+   Google Font
+========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+/* ==========================================================
+   CSS VARIABLES
+========================================================== */
+
+:root {
+  /* ================= Colors ================= */
+
+  --color-bg: #0f0f0f;
+  --color-surface: #212121;
+  --color-hover: #303030;
+  --color-border: #3d3d3d;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #aaaaaa;
+
+  --color-primary: #ff0000;
+  --color-blue: #3ea6ff;
+
+  /* ================= Header ================= */
+
+  --header-height: 56px;
+
+  /* ================= Sidebar ================= */
+
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 72px;
+
+  /* ================= Border Radius ================= */
+
+  --radius-sm: 8px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+  --radius-round: 50%;
+
+  /* ================= Font Sizes ================= */
+
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 18px;
+  --font-xl: 20px;
+  --font-xxl: 24px;
+  --font-title: 32px;
+
+  /* ================= Font Weights ================= */
+
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* ================= Spacing ================= */
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-xxl: 24px;
+  --space-3xl: 32px;
+  --space-4xl: 40px;
+
+  /* ================= Shadows ================= */
+
+  --shadow-light: rgba(0, 0, 0, 0.15);
+  --shadow-medium: rgba(0, 0, 0, 0.25);
+
+  /* ================= Transition ================= */
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+
+  /* ================= Z Index ================= */
+
+  --z-sidebar: 900;
+  --z-header: 1000;
+  --z-modal: 2000;
+}
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   HTML
+========================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   ELEMENT RESET
+========================================================== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* ==========================================================
+   TEXT SELECTION
+========================================================== */
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ==========================================================
+   COMMON UTILITIES
+========================================================== */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.transition {
+  transition: var(--transition-normal);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ==========================================================
+   REUSABLE COMPONENTS
+========================================================== */
+
+.page-container {
+  padding: var(--space-xl) var(--space-3xl);
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: var(--radius-round);
+
+  transition: var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background: var(--color-hover);
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+
+.rounded {
+  border-radius: var(--radius-sm);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+.fade {
+  transition: opacity var(--transition-normal);
+}
+
+.scale:hover {
+  transform: scale(1.02);
+  transition: transform var(--transition-fast);
+}

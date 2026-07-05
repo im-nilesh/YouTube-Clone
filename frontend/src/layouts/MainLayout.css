@@ -1,0 +1,17 @@
+.layout {
+  display: flex;
+}
+
+.main-content {
+  margin-top: var(--header-height);
+
+  margin-left: var(--sidebar-width);
+
+  width: calc(100% - var(--sidebar-width));
+
+  min-height: calc(100vh - var(--header-height));
+
+  padding: var(--space-lg);
+
+  background: var(--color-bg);
+}

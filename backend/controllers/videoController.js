@@ -222,3 +222,50 @@ export async function likeVideo(req, res) {
     });
   }
 }
+
+export async function dislikeVideo(req, res) {
+  try {
+    const videoId = req.params.id;
+    const userId = req.user.id;
+
+    const video = await Video.findById(videoId);
+
+    if (!video) {
+      return res.status(404).json({
+        message: "Video not found",
+      });
+    }
+
+    const alreadyDisliked = video.dislikedBy.some(
+      (id) => id.toString() === userId,
+    );
+
+    if (alreadyDisliked) {
+      return res.status(400).json({
+        message: "You have already disliked this video",
+      });
+    }
+
+    const alreadyLiked = video.likedBy.some((id) => id.toString() === userId);
+
+    if (alreadyLiked) {
+      video.likedBy = video.likedBy.filter((id) => id.toString() !== userId);
+    }
+
+    video.dislikedBy.push(userId);
+
+    video.likes = video.likedBy.length;
+    video.dislikes = video.dislikedBy.length;
+
+    await video.save();
+
+    return res.status(200).json({
+      message: "Video disliked successfully",
+      video,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}

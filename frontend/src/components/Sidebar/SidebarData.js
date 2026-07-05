@@ -11,7 +11,7 @@ import {
   MdNewspaper,
 } from "react-icons/md";
 
-export const sidebarSections = [
+const sidebarSections = [
   {
     items: [
       {
@@ -78,3 +78,5 @@ export const sidebarSections = [
     ],
   },
 ];
+
+export default sidebarSections;

@@ -7,12 +7,9 @@ import "./index.css";
 import "./styles/global.css";
 
 import router from "./routes/router";
-import { SidebarProvider } from "./context/SidebarContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <SidebarProvider>
-      <RouterProvider router={router} />
-    </SidebarProvider>
+    <RouterProvider router={router} />
   </StrictMode>,
 );

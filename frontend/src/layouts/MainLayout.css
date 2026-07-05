@@ -4,7 +4,5 @@
 
   min-height: calc(100vh - var(--header-height));
 
-  background: var(--bg-color);
-
-  transition: var(--transition);
+  padding: 12px 24px 24px;
 }

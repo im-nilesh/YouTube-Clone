@@ -173,3 +173,52 @@ export async function filterVideos(req, res) {
     });
   }
 }
+
+export async function likeVideo(req, res) {
+  try {
+    const videoId = req.params.id;
+    const userId = req.user.id;
+
+    const video = await Video.findById(videoId);
+
+    if (!video) {
+      return res.status(404).json({
+        message: "Video not found",
+      });
+    }
+
+    const alreadyLiked = video.likedBy.some((id) => id.toString() === userId);
+
+    if (alreadyLiked) {
+      return res.status(400).json({
+        message: "You have already liked this video",
+      });
+    }
+
+    const alreadyDisliked = video.dislikedBy.some(
+      (id) => id.toString() === userId,
+    );
+
+    if (alreadyDisliked) {
+      video.dislikedBy = video.dislikedBy.filter(
+        (id) => id.toString() !== userId,
+      );
+    }
+
+    video.likedBy.push(userId);
+
+    video.likes = video.likedBy.length;
+    video.dislikes = video.dislikedBy.length;
+
+    await video.save();
+
+    return res.status(200).json({
+      message: "Video liked successfully",
+      video,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}

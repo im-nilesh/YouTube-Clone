@@ -26,6 +26,16 @@ const videoSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    likes: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: 0,
+    },
+    dislikes: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: 0,
+    },
 
     channel: {
       type: mongoose.Schema.Types.ObjectId,

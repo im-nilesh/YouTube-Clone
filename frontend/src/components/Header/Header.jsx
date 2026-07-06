@@ -1,5 +1,8 @@
 import "./Header.css";
 
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   MdMenu,
   MdSearch,
@@ -10,6 +13,16 @@ import { FaYoutube } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 
 function Header() {
+  const [search, setSearch] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleSearch() {
+    if (!search.trim()) return;
+
+    navigate(`/?search=${search}`);
+  }
+
   return (
     <header className="header">
       {/* Left */}
@@ -30,9 +43,16 @@ function Header() {
 
       <div className="header-center">
         <div className="search-wrapper">
-          <input type="text" placeholder="Search" className="search-input" />
+          <input
+            type="text"
+            placeholder="Search"
+            className="search-input"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+          />
 
-          <button className="search-btn">
+          <button className="search-btn" onClick={handleSearch}>
             <MdSearch />
           </button>
         </div>

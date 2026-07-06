@@ -17,6 +17,5 @@ export async function searchVideos(title) {
 
 export async function filterVideos(category) {
   const response = await api.get(`/videos/filter?category=${category}`);
-
   return response.data.videos;
 }

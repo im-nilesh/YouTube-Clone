@@ -1,32 +1,43 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import "./Home.css";
 
 import FilterBar from "../../components/FilterBar/FilterBar";
 import VideoCard from "../../components/VideoCard/VideoCard";
 
-import { getAllVideos } from "../../services/videoServices";
+import { getAllVideos, searchVideos } from "../../services/videoServices";
 
 function Home() {
   const [videos, setVideos] = useState([]);
-
   const [loading, setLoading] = useState(true);
+
+  const [searchParams] = useSearchParams();
+
+  const search = searchParams.get("search");
 
   useEffect(() => {
     async function fetchVideos() {
       try {
-        const data = await getAllVideos();
+        let data = [];
 
-        setVideos(data);
+        if (search) {
+          data = await searchVideos(search);
+        } else {
+          data = await getAllVideos();
+        }
+
+        setVideos(data || []);
       } catch (error) {
         console.log(error);
+        setVideos([]);
       } finally {
         setLoading(false);
       }
     }
 
     fetchVideos();
-  }, []);
+  }, [search]);
 
   if (loading) {
     return <h2>Loading...</h2>;

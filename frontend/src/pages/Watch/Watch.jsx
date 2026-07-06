@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./Watch.css";
 
 import { getVideo } from "../../services/videoServices";
+import ChannelInfo from "../../components/ChannelInfo/ChannelInfo";
 
 function Watch() {
   const { id } = useParams();
@@ -51,6 +52,8 @@ function Watch() {
           <span>•</span>
           <span>{new Date(video.createdAt).toLocaleDateString()}</span>
         </div>
+
+        <ChannelInfo video={video} />
 
         <p className="watch-description">{video.description}</p>
       </div>

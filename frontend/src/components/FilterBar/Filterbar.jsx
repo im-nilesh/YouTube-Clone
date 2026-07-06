@@ -1,18 +1,24 @@
-import { useState } from "react";
 import "./FilterBar.css";
 
 import filterData from "../../constants/filterData";
 
+import { useVideo } from "../../context/VideoContext";
+
 function FilterBar() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const { selectedCategory, setSelectedCategory } = useVideo();
 
   return (
     <section className="filterbar">
       {filterData.map((filter) => (
         <button
           key={filter}
-          className={`filter-chip ${activeFilter === filter ? "active" : ""}`}
-          onClick={() => setActiveFilter(filter)}
+          className={`filter-chip ${
+            selectedCategory === filter ? "active" : ""
+          }`}
+          onClick={() => {
+            console.log("Clicked:", filter);
+            setSelectedCategory(filter);
+          }}
         >
           {filter}
         </button>

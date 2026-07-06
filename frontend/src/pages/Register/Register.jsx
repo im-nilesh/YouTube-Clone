@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaYoutube } from "react-icons/fa";
 
-import "./Register.css";
+import "../../styles/auth.css";
 
 import { registerUser } from "../../services/authServices";
 
@@ -15,6 +16,13 @@ function Register() {
   });
 
   const [loading, setLoading] = useState(false);
+
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -34,53 +42,62 @@ function Register() {
     }
   }
 
-  function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
-
   return (
-    <div className="register-page">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h2>Create Account</h2>
+    <div className="auth-page">
+      <header className="auth-header">
+        <Link to="/" className="auth-logo">
+          <FaYoutube />
+          <span>YouTube</span>
+        </Link>
+      </header>
 
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
+      <div className="auth-container">
+        <div className="auth-card">
+          <h1 className="auth-title">Create Account</h1>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+          <p className="auth-subtitle">Continue to YouTube Clone</p>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
+          <form className="auth-form" onSubmit={handleSubmit}>
+            <input
+              className="auth-input"
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating..." : "Register"}
-        </button>
+            <input
+              className="auth-input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
 
-        <p>
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
-      </form>
+            <input
+              className="auth-input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+
+            <button className="auth-btn" type="submit" disabled={loading}>
+              {loading ? "Creating Account..." : "Create Account"}
+            </button>
+          </form>
+
+          <p className="auth-footer">
+            Already have an account? <Link to="/login">Sign in</Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

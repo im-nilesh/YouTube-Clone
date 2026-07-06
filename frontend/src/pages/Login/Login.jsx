@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
-import "./Login.css";
+import "../../styles/auth.css";
+import { FaYoutube } from "react-icons/fa";
 
 import { loginUser } from "../../services/authServices";
 import { useAuth } from "../../context/AuthContext";
@@ -44,36 +44,51 @@ function Login() {
   }
 
   return (
-    <div className="login-page">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+    <div className="auth-page">
+      <header className="auth-header">
+        <Link to="/" className="auth-logo">
+          <FaYoutube />
+          <span>YouTube</span>
+        </Link>
+      </header>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+      <div className="auth-container">
+        <div className="auth-card">
+          <h1 className="auth-title">Sign in</h1>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
+          <p className="auth-subtitle">Continue to YouTube Clone</p>
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </button>
+          <form className="auth-form" onSubmit={handleSubmit}>
+            <input
+              className="auth-input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
 
-        <p>
-          Don't have an account? <Link to="/register">Register</Link>
-        </p>
-      </form>
+            <input
+              className="auth-input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+
+            <button className="auth-btn" type="submit" disabled={loading}>
+              {loading ? "Signing in..." : "Sign in"}
+            </button>
+          </form>
+
+          <p className="auth-footer">
+            Don't have an account? <Link to="/register">Create account</Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ dotenv.config();
 
 import express from "express";
 import connectDB from "./database/db.js";
+import cors from "cors";
 
 import userRoutes from "./routes/userRoutes.js";
 import channelRoutes from "./routes/channelRoutes.js";
@@ -13,6 +14,7 @@ const app = express();
 connectDB();
 
 app.use(express.json());
+app.use(cors());
 app.use("/", userRoutes);
 app.use("/", channelRoutes);
 app.use("/", videoRoutes);

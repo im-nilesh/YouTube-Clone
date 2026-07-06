@@ -5,8 +5,8 @@ import Watch from "../pages/Watch/Watch";
 import Channel from "../pages/Channel";
 import UploadVideo from "../pages/UploadVideo";
 import CreateChannel from "../pages/CreateChannel";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 
 const router = createBrowserRouter([
   {

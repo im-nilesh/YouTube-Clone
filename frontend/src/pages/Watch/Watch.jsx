@@ -6,6 +6,7 @@ import "./Watch.css";
 import { getVideo } from "../../services/videoServices";
 import ChannelInfo from "../../components/ChannelInfo/ChannelInfo";
 import SuggestedVideos from "../../components/SuggestedVideos/SuggestedVideos";
+import Comments from "../../components/Comment/Comment";
 
 function Watch() {
   const { id } = useParams();
@@ -57,6 +58,7 @@ function Watch() {
         <ChannelInfo video={video} />
 
         <p className="watch-description">{video.description}</p>
+        <Comments videoId={id} />
       </div>
 
       <div className="watch-right">

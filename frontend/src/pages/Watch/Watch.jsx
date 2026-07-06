@@ -40,7 +40,7 @@ function Watch() {
       <div className="watch-left">
         <iframe
           className="video-player"
-          src={video.videoUrl}
+          src={video.videoUrl.replace("watch?v=", "embed/")}
           title={video.title}
           allowFullScreen
         ></iframe>

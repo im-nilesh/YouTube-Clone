@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
-import Watch from "../pages/Watch";
+import Watch from "../pages/Watch/Watch";
 import Channel from "../pages/Channel";
 import UploadVideo from "../pages/UploadVideo";
 import CreateChannel from "../pages/CreateChannel";

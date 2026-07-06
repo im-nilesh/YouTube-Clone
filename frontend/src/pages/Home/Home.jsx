@@ -61,6 +61,7 @@ function Home() {
         {videos.map((video) => (
           <VideoCard
             key={video._id}
+            id={video._id}
             thumbnail={video.thumbnailUrl}
             duration="12:30"
             channelLogo="https://i.pravatar.cc/100"

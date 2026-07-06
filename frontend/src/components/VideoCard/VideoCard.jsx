@@ -1,6 +1,9 @@
 import "./VideoCard.css";
 
+import { useNavigate } from "react-router-dom";
+
 function VideoCard({
+  id,
   thumbnail,
   duration,
   channelLogo,
@@ -9,8 +12,10 @@ function VideoCard({
   views,
   uploadedAt,
 }) {
+  const navigate = useNavigate();
+
   return (
-    <article className="video-card">
+    <article className="video-card" onClick={() => navigate(`/watch/${id}`)}>
       <div className="thumbnail-container">
         <img src={thumbnail} alt={title} className="video-thumbnail" />
 

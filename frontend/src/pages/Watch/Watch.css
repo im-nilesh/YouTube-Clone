@@ -1,0 +1,63 @@
+.watch-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+
+  padding: 24px;
+}
+
+.watch-left {
+  width: 100%;
+}
+
+.video-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #000;
+}
+
+.watch-title {
+  margin-top: 18px;
+
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.watch-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 10px;
+
+  color: #aaaaaa;
+  font-size: 14px;
+}
+
+.watch-description {
+  margin-top: 18px;
+
+  padding: 16px;
+
+  border-radius: 12px;
+
+  background: #272727;
+
+  line-height: 1.6;
+}
+
+.watch-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 1100px) {
+  .watch-page {
+    grid-template-columns: 1fr;
+  }
+}

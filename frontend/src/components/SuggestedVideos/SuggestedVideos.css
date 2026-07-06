@@ -1,0 +1,40 @@
+.suggested-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.suggested-video {
+  display: flex;
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+.suggested-thumbnail {
+  width: 170px;
+  height: 95px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+.suggested-info {
+  flex: 1;
+}
+
+.suggested-info h4 {
+  font-size: 15px;
+  font-weight: 600;
+
+  margin-bottom: 6px;
+}
+
+.suggested-info p {
+  font-size: 13px;
+
+  color: #aaaaaa;
+
+  margin: 2px 0;
+}

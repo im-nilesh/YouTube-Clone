@@ -16,6 +16,7 @@ export async function addComment(req, res) {
     data.video = video._id;
     const comment = new Comment(data);
     await comment.save();
+    await comment.populate("user");
     return res.status(201).json({
       message: "Comment added Successfully",
       comment,
@@ -30,9 +31,11 @@ export async function addComment(req, res) {
 export async function getAllComments(req, res) {
   try {
     const videoId = req.params.id;
+
     const comments = await Comment.find({
       video: videoId,
-    });
+    }).populate("user");
+
     return res.status(200).json({
       comments,
     });
@@ -62,6 +65,9 @@ export async function updateComment(req, res) {
     const updatedComment = await Comment.findByIdAndUpdate(commentId, data, {
       new: true,
     });
+
+    await updatedComment.populate("user");
+
     return res.status(200).json({
       message: "Comment Updated successfully",
       comment: updatedComment,

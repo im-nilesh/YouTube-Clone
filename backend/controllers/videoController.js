@@ -29,7 +29,7 @@ export async function uploadVideo(req, res) {
 //controller for fetching all the videos
 export async function getAllVideos(req, res) {
   try {
-    const videos = await Video.find();
+    const videos = await Video.find().populate("channel");
 
     return res.status(200).json({
       videos,
@@ -45,12 +45,15 @@ export async function getAllVideos(req, res) {
 export async function getVideo(req, res) {
   try {
     const id = req.params.id;
-    const video = await Video.findById(id);
+
+    const video = await Video.findById(id).populate("channel");
+
     if (!video) {
       return res.status(404).json({
         message: "Video not found",
       });
     }
+
     return res.status(200).json({
       video,
     });

@@ -6,16 +6,11 @@ function ChannelInfo({ video }) {
   return (
     <section className="channel-info">
       <div className="channel-left">
-        <img
-          src="https://i.pravatar.cc/150"
-          alt="channel"
-          className="channel-image"
-        />
+        <img src={video.channel.logo} alt="channel" className="channel-image" />
 
         <div>
-          <h4 className="channel-title">Channel Name</h4>
-
-          <p className="subscriber-count">10K subscribers</p>
+          <h4 className="channel-title">{video.channel.channelName}</h4>
+          {video.channel.subscribers} subscribers
         </div>
       </div>
 

@@ -64,9 +64,9 @@ function Home() {
             id={video._id}
             thumbnail={video.thumbnailUrl}
             duration="12:30"
-            channelLogo="https://i.pravatar.cc/100"
+            channelLogo={video.channel.logo}
             title={video.title}
-            channelName="Channel"
+            channelName={video.channel.channelName}
             views={video.views}
             uploadedAt="2 days ago"
           />

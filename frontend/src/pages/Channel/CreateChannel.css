@@ -1,0 +1,54 @@
+.create-channel-page {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.create-channel-form {
+  width: 100%;
+  max-width: 700px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  background: #212121;
+}
+
+.create-channel-form h2 {
+  text-align: center;
+}
+
+.create-channel-form input,
+.create-channel-form textarea {
+  padding: 14px;
+
+  border: 1px solid #3f3f3f;
+  border-radius: 8px;
+
+  background: #121212;
+  color: white;
+}
+
+.create-channel-form textarea {
+  resize: vertical;
+}
+
+.create-channel-form button {
+  padding: 14px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #3ea6ff;
+
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}

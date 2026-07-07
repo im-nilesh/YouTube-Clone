@@ -13,6 +13,16 @@
   background: var(--bg);
 }
 
+.sidebar-item {
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.sidebar-item:hover {
+  transform: translateX(3px);
+}
+
 .sidebar::-webkit-scrollbar {
   width: 8px;
 }

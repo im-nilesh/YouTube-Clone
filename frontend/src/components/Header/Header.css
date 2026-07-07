@@ -43,6 +43,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  flex-shrink: 0;
 }
 
 .youtube-logo {
@@ -129,6 +130,14 @@
 
 .mic-btn svg {
   font-size: 22px;
+}
+
+.search-input:focus {
+  border-color: var(--blue);
+}
+
+.search-btn {
+  cursor: pointer;
 }
 
 /* ================= Right ================= */

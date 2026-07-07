@@ -72,7 +72,7 @@ function Header() {
       {/* Right */}
 
       <div className="header-right">
-        <button className="icon-btn">
+        <button className="icon-btn" onClick={() => navigate("/upload")}>
           <FiPlus className="header-icon" />
         </button>
 

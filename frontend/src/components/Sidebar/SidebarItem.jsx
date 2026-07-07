@@ -19,7 +19,17 @@ function SidebarItem({ title, path, icon: Icon, onClick }) {
     );
   }
 
-  // Normal links
+  // Dummy items
+  if (!path) {
+    return (
+      <button type="button" className="sidebar-item">
+        <Icon className="sidebar-icon" />
+        <span>{title}</span>
+      </button>
+    );
+  }
+
+  // Working routes
   return (
     <NavLink
       to={path}

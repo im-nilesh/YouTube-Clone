@@ -13,14 +13,11 @@ function Sidebar({ isOpen }) {
   async function handleYourChannel() {
     try {
       const channel = await getMyChannel();
-
       navigate(`/channel/${channel._id}`);
-    } catch (error) {
+    } catch {
       navigate("/create-channel");
     }
   }
-
-  console.log(sidebarSections);
 
   return (
     <aside className={`sidebar ${isOpen ? "" : "sidebar-closed"}`}>

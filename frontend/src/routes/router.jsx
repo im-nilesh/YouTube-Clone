@@ -8,6 +8,7 @@ import CreateChannel from "../pages/CreateChannel/CreateChannel";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import EditVideo from "../pages/EditVideo/EditVideo";
+import ProtectedRoute from "../components/ProtectedRoutes/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,15 +29,27 @@ const router = createBrowserRouter([
       },
       {
         path: "edit-video/:id",
-        element: <EditVideo />,
+        element: (
+          <ProtectedRoute>
+            <EditVideo />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "upload",
-        element: <UploadVideo />,
+        element: (
+          <ProtectedRoute>
+            <UploadVideo />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "create-channel",
-        element: <CreateChannel />,
+        element: (
+          <ProtectedRoute>
+            <CreateChannel />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./CreateChannel.css";
 
-import { createChannel } from "../../services/channelServices";
+import { createChannel } from "../../services/createChannelServices";
 
 function CreateChannel() {
   const navigate = useNavigate();

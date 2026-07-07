@@ -7,7 +7,7 @@ import sidebarSections from "./SidebarData";
 
 import { getMyChannel } from "../../services/channelServices";
 
-function Sidebar() {
+function Sidebar({ isOpen }) {
   const navigate = useNavigate();
 
   async function handleYourChannel() {
@@ -20,8 +20,10 @@ function Sidebar() {
     }
   }
 
+  console.log(sidebarSections);
+
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "" : "sidebar-closed"}`}>
       {sidebarSections.map((section, index) => (
         <div className="sidebar-section" key={index}>
           {section.title && (

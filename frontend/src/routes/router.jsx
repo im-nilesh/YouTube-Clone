@@ -9,6 +9,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import EditVideo from "../pages/EditVideo/EditVideo";
 import ProtectedRoute from "../components/ProtectedRoutes/ProtectedRoute";
+import NotFound from "../pages/NotFound.jsx/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
       {
         path: "watch/:id",

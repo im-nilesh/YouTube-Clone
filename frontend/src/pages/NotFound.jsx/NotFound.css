@@ -1,0 +1,48 @@
+.not-found {
+  min-height: calc(100vh - var(--header-height));
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 16px;
+
+  text-align: center;
+}
+
+.not-found h1 {
+  font-size: 96px;
+  font-weight: 700;
+
+  color: var(--primary);
+}
+
+.not-found h2 {
+  font-size: 32px;
+}
+
+.not-found p {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.not-found-btn {
+  margin-top: 16px;
+
+  padding: 12px 24px;
+
+  border-radius: 999px;
+
+  background: var(--blue);
+
+  color: #fff;
+
+  font-weight: 500;
+
+  transition: var(--transition);
+}
+
+.not-found-btn:hover {
+  opacity: 0.9;
+}

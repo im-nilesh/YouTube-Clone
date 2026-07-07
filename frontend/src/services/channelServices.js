@@ -21,3 +21,15 @@ export async function getChannelVideos(id) {
   const response = await api.get(`/channel/${id}/videos`);
   return response.data.videos;
 }
+
+export async function getMyChannel() {
+  const token = localStorage.getItem("token");
+
+  const response = await api.get("/channel/me", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data.channel;
+}

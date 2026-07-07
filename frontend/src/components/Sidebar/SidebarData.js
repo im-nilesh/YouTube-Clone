@@ -1,14 +1,8 @@
 import {
   MdHomeFilled,
-  MdOutlineSubscriptions,
   MdOutlineVideoLibrary,
-  MdHistory,
-  MdOutlineWatchLater,
-  MdThumbUpAlt,
-  MdTrendingUp,
-  MdMusicNote,
-  MdSportsEsports,
-  MdNewspaper,
+  MdUpload,
+  MdAddCircleOutline,
 } from "react-icons/md";
 
 const sidebarSections = [
@@ -20,60 +14,19 @@ const sidebarSections = [
         icon: MdHomeFilled,
       },
       {
-        title: "Subscriptions",
-        path: "/subscriptions",
-        icon: MdOutlineSubscriptions,
-      },
-    ],
-  },
-
-  {
-    items: [
-      {
-        title: "Your Videos",
-        path: "/your-videos",
+        title: "Your Channel",
+        path: null,
         icon: MdOutlineVideoLibrary,
       },
       {
-        title: "History",
-        path: "/history",
-        icon: MdHistory,
+        title: "Upload Video",
+        path: "/upload",
+        icon: MdUpload,
       },
       {
-        title: "Watch Later",
-        path: "/watch-later",
-        icon: MdOutlineWatchLater,
-      },
-      {
-        title: "Liked Videos",
-        path: "/liked-videos",
-        icon: MdThumbUpAlt,
-      },
-    ],
-  },
-
-  {
-    title: "Explore",
-    items: [
-      {
-        title: "Trending",
-        path: "/trending",
-        icon: MdTrendingUp,
-      },
-      {
-        title: "Music",
-        path: "/music",
-        icon: MdMusicNote,
-      },
-      {
-        title: "Gaming",
-        path: "/gaming",
-        icon: MdSportsEsports,
-      },
-      {
-        title: "News",
-        path: "/news",
-        icon: MdNewspaper,
+        title: "Create Channel",
+        path: "/create-channel",
+        icon: MdAddCircleOutline,
       },
     ],
   },

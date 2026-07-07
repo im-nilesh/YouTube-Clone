@@ -5,11 +5,14 @@ import {
   getChannel,
   getAllChannels,
   getChannelVideos,
+  getMyChannel,
 } from "../controllers/channelController.js";
 
 const router = express.Router();
 
 router.post("/channel", authMiddleware, createChannel);
+
+router.get("/channel/me", authMiddleware, getMyChannel);
 
 router.get("/channel/:id", getChannel);
 

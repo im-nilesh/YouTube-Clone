@@ -45,6 +45,28 @@ export async function getChannel(req, res) {
   }
 }
 
+export async function getMyChannel(req, res) {
+  try {
+    const channel = await Channel.findOne({
+      owner: req.user.id,
+    });
+
+    if (!channel) {
+      return res.status(404).json({
+        message: "Channel not found",
+      });
+    }
+
+    return res.status(200).json({
+      channel,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}
+
 export async function getAllChannels(req, res) {
   try {
     const channels = await Channel.find();

@@ -1,7 +1,7 @@
 import api from "../api/axios";
 
 export async function getComments(videoId) {
-  const response = await api.get(`/comment/${videoId}`);
+  const response = await api.get(`/video/${videoId}/comments`);
   return response.data.comments;
 }
 
@@ -9,7 +9,7 @@ export async function addComment(videoId, comment) {
   const token = localStorage.getItem("token");
 
   const response = await api.post(
-    `/comment/${videoId}`,
+    `/video/${videoId}/comment`,
     { comment },
     {
       headers: {
@@ -40,11 +40,9 @@ export async function updateComment(id, comment) {
 export async function deleteComment(id) {
   const token = localStorage.getItem("token");
 
-  const response = await api.delete(`/comment/${id}`, {
+  await api.delete(`/comment/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  return response.data.comment;
 }

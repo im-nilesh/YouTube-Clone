@@ -16,7 +16,10 @@ export async function addComment(req, res) {
     data.video = video._id;
     const comment = new Comment(data);
     await comment.save();
-    await comment.populate("user");
+    await comment.populate({
+      path: "user",
+      select: "_id username email",
+    });
     return res.status(201).json({
       message: "Comment added Successfully",
       comment,
@@ -34,7 +37,10 @@ export async function getAllComments(req, res) {
 
     const comments = await Comment.find({
       video: videoId,
-    }).populate("user");
+    }).populate({
+      path: "user",
+      select: "_id username email",
+    });
 
     return res.status(200).json({
       comments,
@@ -66,7 +72,10 @@ export async function updateComment(req, res) {
       new: true,
     });
 
-    await updatedComment.populate("user");
+    await updatedComment.populate({
+      path: "user",
+      select: "_id username email",
+    });
 
     return res.status(200).json({
       message: "Comment Updated successfully",

@@ -1,0 +1,53 @@
+.comment-item {
+  padding: 16px 0;
+
+  border-bottom: 1px solid #303030;
+}
+
+.comment-header h4 {
+  font-size: 15px;
+
+  margin-bottom: 8px;
+}
+
+.comment-item p {
+  line-height: 1.5;
+
+  margin-bottom: 12px;
+}
+
+.comment-input {
+  width: 100%;
+
+  padding: 10px;
+
+  border: 1px solid #3f3f3f;
+  border-radius: 8px;
+
+  background: #212121;
+  color: white;
+
+  resize: vertical;
+}
+
+.comment-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 10px;
+}
+
+.comment-actions button {
+  padding: 8px 14px;
+
+  border-radius: 6px;
+
+  background: #3ea6ff;
+
+  color: white;
+}
+
+.comment-actions button:last-child {
+  background: #cc0000;
+}

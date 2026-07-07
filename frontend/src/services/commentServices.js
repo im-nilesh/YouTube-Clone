@@ -1,13 +1,15 @@
 import api from "../api/axios";
 
 export async function getComments(videoId) {
-  const response = await api.get(`/video/${videoId}/comments`);
+  const response = await api.get(`/comment/${videoId}`);
   return response.data.comments;
 }
 
-export async function addComment(videoId, comment, token) {
+export async function addComment(videoId, comment) {
+  const token = localStorage.getItem("token");
+
   const response = await api.post(
-    `/video/${videoId}/comment`,
+    `/comment/${videoId}`,
     { comment },
     {
       headers: {
@@ -16,12 +18,14 @@ export async function addComment(videoId, comment, token) {
     },
   );
 
-  return response.data;
+  return response.data.comment;
 }
 
-export async function updateComment(commentId, comment, token) {
+export async function updateComment(id, comment) {
+  const token = localStorage.getItem("token");
+
   const response = await api.put(
-    `/comment/${commentId}`,
+    `/comment/${id}`,
     { comment },
     {
       headers: {
@@ -30,15 +34,17 @@ export async function updateComment(commentId, comment, token) {
     },
   );
 
-  return response.data;
+  return response.data.comment;
 }
 
-export async function deleteComment(commentId, token) {
-  const response = await api.delete(`/comment/${commentId}`, {
+export async function deleteComment(id) {
+  const token = localStorage.getItem("token");
+
+  const response = await api.delete(`/comment/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 
-  return response.data;
+  return response.data.comment;
 }

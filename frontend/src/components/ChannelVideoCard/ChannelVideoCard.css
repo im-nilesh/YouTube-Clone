@@ -1,0 +1,61 @@
+.channel-video-card {
+  background: #212121;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.channel-video-thumbnail {
+  width: 100%;
+  aspect-ratio: 16/9;
+
+  object-fit: cover;
+}
+
+.channel-video-content {
+  padding: 16px;
+}
+
+.channel-video-content h3 {
+  font-size: 17px;
+
+  margin-bottom: 8px;
+}
+
+.channel-video-content p {
+  color: #aaaaaa;
+
+  font-size: 14px;
+
+  margin-bottom: 18px;
+}
+
+.channel-video-actions {
+  display: flex;
+
+  gap: 12px;
+}
+
+.edit-btn,
+.delete-btn {
+  flex: 1;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  font-weight: 500;
+}
+
+.edit-btn {
+  background: #3ea6ff;
+
+  color: white;
+}
+
+.delete-btn {
+  background: #cc0000;
+
+  color: white;
+}

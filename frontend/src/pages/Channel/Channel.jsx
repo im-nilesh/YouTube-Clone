@@ -6,6 +6,8 @@ import "./Channel.css";
 import { getChannel, getChannelVideos } from "../../services/channelServices";
 
 import VideoCard from "../../components/VideoCard/VideoCard";
+import ChannelVideoCard from "../../components/ChannelVideoCard/ChannelVideoCard";
+import { deleteVideo } from "../../services/videoServices";
 
 function Channel() {
   const { id } = useParams();
@@ -31,6 +33,24 @@ function Channel() {
 
     fetchData();
   }, [id]);
+
+  async function handleDelete(videoId) {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this video?",
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+      await deleteVideo(videoId);
+
+      setVideos((prev) => prev.filter((video) => video._id !== videoId));
+
+      alert("Video deleted successfully");
+    } catch (error) {
+      alert(error.response?.data?.message || "Delete failed");
+    }
+  }
 
   if (loading) return <h2>Loading...</h2>;
 
@@ -64,14 +84,10 @@ function Channel() {
 
       <div className="channel-videos">
         {videos.map((video) => (
-          <VideoCard
+          <ChannelVideoCard
             key={video._id}
-            id={video._id}
-            thumbnail={video.thumbnailUrl}
-            title={video.title}
-            channelName={channel.channelName}
-            views={video.views}
-            uploadedAt={new Date(video.createdAt).toLocaleDateString()}
+            video={video}
+            onDelete={handleDelete}
           />
         ))}
       </div>

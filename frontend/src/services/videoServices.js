@@ -31,3 +31,15 @@ export async function uploadVideo(videoData) {
 
   return response.data;
 }
+
+export async function deleteVideo(id) {
+  const token = localStorage.getItem("token");
+
+  const response = await api.delete(`/video/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
+}

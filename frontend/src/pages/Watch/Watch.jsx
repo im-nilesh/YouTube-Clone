@@ -55,7 +55,7 @@ function Watch() {
           <span>{new Date(video.createdAt).toLocaleDateString()}</span>
         </div>
 
-        <ChannelInfo video={video} />
+        <ChannelInfo video={video} onVideoUpdate={setVideo} />
 
         <p className="watch-description">{video.description}</p>
         <Comments videoId={id} />

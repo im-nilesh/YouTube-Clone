@@ -95,6 +95,17 @@
   border-color: #3ea6ff;
 }
 
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-error {
+  color: #ff6b6b;
+  font-size: 13px;
+}
+
 .auth-btn {
   margin-top: 8px;
 

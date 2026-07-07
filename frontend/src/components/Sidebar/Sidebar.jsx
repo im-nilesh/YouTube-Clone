@@ -3,9 +3,9 @@ import "./Sidebar.css";
 import SidebarItem from "./SidebarItem";
 import sidebarSections from "./SidebarData";
 
-function Sidebar() {
+function Sidebar({ isOpen }) {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "" : "sidebar-closed"}`}>
       {sidebarSections.map((section, index) => (
         <div className="sidebar-section" key={index}>
           {section.title && (

@@ -16,6 +16,8 @@ function Login() {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
@@ -23,10 +25,37 @@ function Login() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+    setErrors({
+      ...errors,
+      [e.target.name]: "",
+    });
+  }
+
+  function validate() {
+    const newErrors = {};
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Enter a valid email address";
+    }
+
+    if (!formData.password) {
+      newErrors.password = "Password is required";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!validate()) return;
 
     try {
       setLoading(true);
@@ -58,26 +87,34 @@ function Login() {
 
           <p className="auth-subtitle">Continue to YouTube Clone</p>
 
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <input
-              className="auth-input"
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+          <form className="auth-form" onSubmit={handleSubmit} noValidate>
+            <div className="auth-field">
+              <input
+                className="auth-input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && (
+                <span className="field-error">{errors.email}</span>
+              )}
+            </div>
 
-            <input
-              className="auth-input"
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+            <div className="auth-field">
+              <input
+                className="auth-input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+              {errors.password && (
+                <span className="field-error">{errors.password}</span>
+              )}
+            </div>
 
             <button className="auth-btn" type="submit" disabled={loading}>
               {loading ? "Signing in..." : "Sign in"}

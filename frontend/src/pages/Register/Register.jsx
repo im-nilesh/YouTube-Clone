@@ -15,6 +15,8 @@ function Register() {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
@@ -22,10 +24,45 @@ function Register() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+    setErrors({
+      ...errors,
+      [e.target.name]: "",
+    });
+  }
+
+  function validate() {
+    const newErrors = {};
+
+    if (!formData.username.trim()) {
+      newErrors.username = "Username is required";
+    } else if (formData.username.trim().length < 3) {
+      newErrors.username = "Username must be at least 3 characters";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Enter a valid email address";
+    }
+
+    if (!formData.password) {
+      newErrors.password = "Password is required";
+    } else if (formData.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!validate()) return;
 
     try {
       setLoading(true);
@@ -57,36 +94,48 @@ function Register() {
 
           <p className="auth-subtitle">Continue to YouTube Clone</p>
 
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <input
-              className="auth-input"
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
+          <form className="auth-form" onSubmit={handleSubmit} noValidate>
+            <div className="auth-field">
+              <input
+                className="auth-input"
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={formData.username}
+                onChange={handleChange}
+              />
+              {errors.username && (
+                <span className="field-error">{errors.username}</span>
+              )}
+            </div>
 
-            <input
-              className="auth-input"
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+            <div className="auth-field">
+              <input
+                className="auth-input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && (
+                <span className="field-error">{errors.email}</span>
+              )}
+            </div>
 
-            <input
-              className="auth-input"
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+            <div className="auth-field">
+              <input
+                className="auth-input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+              {errors.password && (
+                <span className="field-error">{errors.password}</span>
+              )}
+            </div>
 
             <button className="auth-btn" type="submit" disabled={loading}>
               {loading ? "Creating Account..." : "Create Account"}

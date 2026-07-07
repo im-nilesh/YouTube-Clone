@@ -5,4 +5,16 @@
   min-height: calc(100vh - var(--header-height));
 
   padding: 12px 24px 24px;
+
+  transition: margin-left var(--transition);
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
 }

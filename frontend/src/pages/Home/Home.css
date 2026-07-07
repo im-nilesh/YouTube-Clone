@@ -11,3 +11,9 @@
 
   margin-top: 24px;
 }
+
+@media (max-width: 480px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}

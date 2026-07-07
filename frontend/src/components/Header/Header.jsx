@@ -12,7 +12,7 @@ import {
 import { FaYoutube } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 
-function Header() {
+function Header({ onMenuClick }) {
   const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ function Header() {
       {/* Left */}
 
       <div className="header-left">
-        <button className="icon-btn">
+        <button className="icon-btn" onClick={onMenuClick}>
           <MdMenu className="header-icon" />
         </button>
 
@@ -72,7 +72,7 @@ function Header() {
       {/* Right */}
 
       <div className="header-right">
-        <button className="icon-btn" onClick={() => navigate("/upload")}>
+        <button className="icon-btn">
           <FiPlus className="header-icon" />
         </button>
 

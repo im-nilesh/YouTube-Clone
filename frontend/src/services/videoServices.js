@@ -55,3 +55,35 @@ export async function updateVideo(id, videoData) {
 
   return response.data.video;
 }
+
+export async function likeVideo(id) {
+  const token = localStorage.getItem("token");
+
+  const response = await api.put(
+    `/video/${id}/like`,
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  );
+
+  return response.data.video;
+}
+
+export async function dislikeVideo(id) {
+  const token = localStorage.getItem("token");
+
+  const response = await api.put(
+    `/video/${id}/dislike`,
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  );
+
+  return response.data.video;
+}

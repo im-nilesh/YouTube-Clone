@@ -11,16 +11,21 @@
   padding: 12px 12px 24px;
 
   background: var(--bg);
+
+  transition: transform var(--transition);
+
+  z-index: 900;
 }
 
-.sidebar-item {
-  transition:
-    background 0.2s ease,
-    transform 0.15s ease;
+.sidebar-closed {
+  transform: translateX(-100%);
 }
 
-.sidebar-item:hover {
-  transform: translateX(3px);
+@media (max-width: 768px) {
+  .sidebar {
+    z-index: 1100;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .sidebar::-webkit-scrollbar {

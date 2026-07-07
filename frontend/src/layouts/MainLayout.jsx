@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import Header from "../components/Header/Header";
@@ -6,13 +7,23 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import "./MainLayout.css";
 
 function MainLayout() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(
+    () => window.innerWidth > 768,
+  );
+
+  function toggleSidebar() {
+    setIsSidebarOpen((prev) => !prev);
+  }
+
   return (
     <>
-      <Header />
+      <Header onMenuClick={toggleSidebar} />
 
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} />
 
-      <main className="main-content">
+      <main
+        className={`main-content ${isSidebarOpen ? "" : "sidebar-collapsed"}`}
+      >
         <Outlet />
       </main>
     </>

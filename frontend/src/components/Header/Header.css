@@ -43,7 +43,6 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  flex-shrink: 0;
 }
 
 .youtube-logo {
@@ -132,14 +131,6 @@
   font-size: 22px;
 }
 
-.search-input:focus {
-  border-color: var(--blue);
-}
-
-.search-btn {
-  cursor: pointer;
-}
-
 /* ================= Right ================= */
 
 .header-right {
@@ -173,4 +164,24 @@
 
 .signin-btn:hover {
   background: rgba(62, 166, 255, 0.12);
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 768px) {
+  .header-left {
+    width: auto;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .header-right {
+    width: auto;
+  }
+
+  .username {
+    display: none;
+  }
 }

@@ -1,6 +1,6 @@
 import "./Header.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 import {
@@ -39,11 +39,11 @@ function Header({ onMenuClick }) {
           <MdMenu className="header-icon" />
         </button>
 
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <FaYoutube className="youtube-logo" />
 
           <span className="logo-text">YouTube</span>
-        </a>
+        </Link>
       </div>
 
       {/* Center */}

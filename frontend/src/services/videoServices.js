@@ -19,3 +19,15 @@ export async function filterVideos(category) {
   const response = await api.get(`/videos/filter?category=${category}`);
   return response.data.videos;
 }
+
+export async function uploadVideo(videoData) {
+  const token = localStorage.getItem("token");
+
+  const response = await api.post("/video", videoData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
+}

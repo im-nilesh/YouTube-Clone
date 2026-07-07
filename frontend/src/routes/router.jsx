@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
 import Watch from "../pages/Watch/Watch";
 import Channel from "../pages/Channel/Channel";
-import UploadVideo from "../pages/UploadVideo";
+import UploadVideo from "../pages/UploadVideo/UploadVideo";
 import CreateChannel from "../pages/CreateChannel/CreateChannel";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";

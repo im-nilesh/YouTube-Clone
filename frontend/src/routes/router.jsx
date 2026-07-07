@@ -7,6 +7,7 @@ import UploadVideo from "../pages/UploadVideo/UploadVideo";
 import CreateChannel from "../pages/CreateChannel/CreateChannel";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import EditVideo from "../pages/EditVideo/EditVideo";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "channel/:id",
         element: <Channel />,
+      },
+      {
+        path: "edit-video/:id",
+        element: <EditVideo />,
       },
       {
         path: "upload",

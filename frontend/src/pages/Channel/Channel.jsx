@@ -5,7 +5,6 @@ import "./Channel.css";
 
 import { getChannel, getChannelVideos } from "../../services/channelServices";
 
-import VideoCard from "../../components/VideoCard/VideoCard";
 import ChannelVideoCard from "../../components/ChannelVideoCard/ChannelVideoCard";
 import { deleteVideo } from "../../services/videoServices";
 

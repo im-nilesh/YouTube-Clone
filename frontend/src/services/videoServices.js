@@ -43,3 +43,15 @@ export async function deleteVideo(id) {
 
   return response.data;
 }
+
+export async function updateVideo(id, videoData) {
+  const token = localStorage.getItem("token");
+
+  const response = await api.put(`/video/${id}`, videoData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data.video;
+}

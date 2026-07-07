@@ -1,7 +1,7 @@
 import "./Header.css";
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 import {
   MdMenu,
@@ -16,6 +16,13 @@ function Header() {
   const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
+
+  const { user, logout } = useAuth();
+
+  function handleLogout() {
+    logout();
+    navigate("/");
+  }
 
   function handleSearch() {
     if (!search.trim()) return;
@@ -73,7 +80,19 @@ function Header() {
           <MdOutlineNotificationsNone className="header-icon" />
         </button>
 
-        <button className="signin-btn">Sign in</button>
+        {user ? (
+          <>
+            <span className="username">{user.username}</span>
+
+            <button className="signin-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <button className="signin-btn" onClick={() => navigate("/login")}>
+            Sign in
+          </button>
+        )}
       </div>
     </header>
   );

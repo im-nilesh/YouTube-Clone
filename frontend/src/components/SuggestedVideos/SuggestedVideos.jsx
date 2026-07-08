@@ -45,7 +45,7 @@ function SuggestedVideos({ currentVideoId }) {
           <div className="suggested-info">
             <h4>{video.title}</h4>
 
-            <p>{video.channel.channelName}</p>
+            <p>{video.channel?.channelName || "Unknown Channel"}</p>
 
             <p>{video.views} views</p>
           </div>

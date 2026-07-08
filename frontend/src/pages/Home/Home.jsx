@@ -58,19 +58,24 @@ function Home() {
       <FilterBar />
 
       <section className="video-grid">
-        {videos.map((video) => (
-          <VideoCard
-            key={video._id}
-            id={video._id}
-            thumbnail={video.thumbnailUrl}
-            duration="12:30"
-            channelLogo={video.channel.logo}
-            title={video.title}
-            channelName={video.channel.channelName}
-            views={video.views}
-            uploadedAt="2 days ago"
-          />
-        ))}
+        {videos.length > 0 ? (
+          videos.map((video) => (
+            <VideoCard
+              key={video._id}
+              id={video._id}
+              thumbnail={video.thumbnailUrl}
+              title={video.title}
+              channelName={video.channel?.channelName}
+              views={video.views}
+              uploadedAt={new Date(video.createdAt).toLocaleDateString()}
+            />
+          ))
+        ) : (
+          <div className="empty-state">
+            <h2>No videos found</h2>
+            <p>Try searching for something else.</p>
+          </div>
+        )}
       </section>
     </div>
   );

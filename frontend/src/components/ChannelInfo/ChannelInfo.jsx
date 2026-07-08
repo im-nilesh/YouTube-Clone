@@ -1,3 +1,5 @@
+//JSX File to display the channel info section
+
 import "./ChannelInfo.css";
 
 import { MdThumbUpOffAlt, MdThumbDownOffAlt } from "react-icons/md";

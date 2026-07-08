@@ -1,3 +1,5 @@
+// Jsx file for Channel Video Section
+
 import { useNavigate } from "react-router-dom";
 
 import "./ChannelVideoCard.css";

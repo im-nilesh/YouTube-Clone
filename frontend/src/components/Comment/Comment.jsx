@@ -1,3 +1,5 @@
+//Comments File
+
 import { useEffect, useState } from "react";
 
 import "./Comment.css";
@@ -96,15 +98,22 @@ function Comments({ videoId }) {
         </form>
       )}
 
-      {comments.map((comment) => (
-        <CommentItem
-          key={comment._id}
-          comment={comment}
-          currentUser={user}
-          onUpdate={handleUpdate}
-          onDelete={handleDelete}
-        />
-      ))}
+      {comments.length > 0 ? (
+        comments.map((comment) => (
+          <CommentItem
+            key={comment._id}
+            comment={comment}
+            currentUser={user}
+            onUpdate={handleUpdate}
+            onDelete={handleDelete}
+          />
+        ))
+      ) : (
+        <div className="empty-state">
+          <h3>No comments yet</h3>
+          <p>Be the first to comment.</p>
+        </div>
+      )}
     </section>
   );
 }

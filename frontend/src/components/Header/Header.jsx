@@ -12,6 +12,8 @@ import {
 import { FaYoutube } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 
+import { getMyChannel } from "../../services/channelServices";
+
 function Header({ onMenuClick }) {
   const [search, setSearch] = useState("");
 
@@ -30,6 +32,16 @@ function Header({ onMenuClick }) {
     navigate(`/?search=${search}`);
   }
 
+  async function handleMyChannel() {
+    try {
+      const channel = await getMyChannel();
+
+      navigate(`/channel/${channel._id}`);
+    } catch (error) {
+      navigate("/create-channel");
+    }
+  }
+
   return (
     <header className="header">
       {/* Left */}
@@ -41,7 +53,6 @@ function Header({ onMenuClick }) {
 
         <Link to="/" className="logo">
           <FaYoutube className="youtube-logo" />
-
           <span className="logo-text">YouTube</span>
         </Link>
       </div>
@@ -72,7 +83,11 @@ function Header({ onMenuClick }) {
       {/* Right */}
 
       <div className="header-right">
-        <button className="icon-btn">
+        <button
+          className="icon-btn"
+          onClick={() => navigate("/upload")}
+          title="Upload Video"
+        >
           <FiPlus className="header-icon" />
         </button>
 
@@ -82,7 +97,14 @@ function Header({ onMenuClick }) {
 
         {user ? (
           <>
-            <span className="username">{user.username}</span>
+            <span
+              className="username"
+              onClick={handleMyChannel}
+              style={{ cursor: "pointer" }}
+              title="Go to your channel"
+            >
+              {user.username}
+            </span>
 
             <button className="signin-btn" onClick={handleLogout}>
               Logout

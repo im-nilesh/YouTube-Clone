@@ -166,6 +166,18 @@
   background: rgba(62, 166, 255, 0.12);
 }
 
+.username {
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.username:hover {
+  color: var(--blue);
+}
+
 /* ================= Responsive ================= */
 
 @media (max-width: 768px) {

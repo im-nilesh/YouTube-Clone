@@ -58,11 +58,17 @@ function ChannelInfo({ video, onVideoUpdate }) {
   return (
     <section className="channel-info">
       <div className="channel-left">
-        <img src={video.channel.logo} alt="channel" className="channel-image" />
+        <img
+          src={video.channel?.logo || "/default-avatar.png"}
+          alt={video.channel?.channelName || "Unknown Channel"}
+        />
 
         <div>
-          <h4 className="channel-title">{video.channel.channelName}</h4>
-          {video.channel.subscribers} subscribers
+          <h4 className="channel-title">
+            {video.channel?.channelName || "Unknown Channel"}
+          </h4>
+
+          <p>{video.channel?.subscribers ?? 0} subscribers</p>
         </div>
       </div>
 

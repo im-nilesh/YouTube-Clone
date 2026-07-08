@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 
 import "./Home.css";
 
-import FilterBar from "../../components/FilterBar/FilterBar";
+import FilterBar from "../../components/FilterBar/FilterBar"; //updated
 import VideoCard from "../../components/VideoCard/VideoCard";
 import { useVideo } from "../../context/VideoContext";
 import {

@@ -11,7 +11,7 @@ import videoRoutes from "./routes/videoRoutes.js";
 import commentRoutes from "./routes/commentRoutes.js";
 
 const app = express();
-connectDB();
+await connectDB();
 
 app.use(express.json());
 app.use(cors());
